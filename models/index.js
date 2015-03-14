@@ -6,6 +6,7 @@ var sequelize = new Sequelize(
     database.user,
     database.password,
     {
+        storage: database.storage,
         host: database.host,
         dialect: database.dialect,
         pool: database.pool
