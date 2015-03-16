@@ -6,6 +6,7 @@ module.exports = {
         user: 'root',
         password: '1234',
         database: 'again',
+        storage: 'database.storage',
         pool: {
             max: 5,
             min: 0,

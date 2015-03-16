@@ -1,14 +1,15 @@
 'use strict';
 
 module.exports = function (sequelize, DataTypes) {
-    return sequelize.define('user', {
+    return sequelize.define('word', {
         id: {
             type: DataTypes.UUID,
             primaryKey: true
         },
-        username: DataTypes.STRING,
-        password: DataTypes.STRING,
-        nickname: DataTypes.STRING
+        original: DataTypes.STRING,
+        translation: DataTypes.STRING,
+        phonetic: DataTypes.STRING,
+        example: DataTypes.TEXT
     }, {
         freezeTableName: true,
         underscored: true

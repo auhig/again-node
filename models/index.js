@@ -1,3 +1,5 @@
+'use strict';
+
 var Sequelize = require('sequelize');
 var database = require('../config').database;
 
@@ -7,6 +9,7 @@ var sequelize = new Sequelize(
     database.password,
     {
         host: database.host,
+        storage: database.storage,
         dialect: database.dialect,
         pool: database.pool
     }
@@ -14,7 +17,12 @@ var sequelize = new Sequelize(
 
 // 模型定义文件名
 var models = [
-    'user'
+    'category',
+    'memory-daily',
+    'memory-detail',
+    'user',
+    'word',
+    'wordbook'
 ];
 
 // 注册模型
@@ -28,11 +36,20 @@ models.forEach(function (model) {
 
 // 描述实体间依赖关系
 (function (m) {
+    m.Wordbook.belongsTo(m.Category);
 
+    m.Word.belongsTo(m.Wordbook);
+    m.Wordbook.hasMany(m.Word, {as: 'Words'});
+
+    m.MemoryDetail.belongsTo(m.User);
+    m.MemoryDetail.belongsTo(m.Wordbook);
+    m.MemoryDetail.belongsTo(m.Word);
+
+    m.MemoryDaily.belongsTo(m.User);
+    m.MemoryDaily.belongsTo(m.Wordbook);
+    m.MemoryDaily.belongsTo(m.Word);
 })(module.exports);
 
-sequelize.sync().then(function () {
-    console.info('All modal sync over');
-});
+sequelize.sync();
 
 module.exports.sequelize = sequelize;
