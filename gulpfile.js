@@ -28,7 +28,7 @@ gulp.task('scripts', function () {
 });
 
 gulp.task('package', function () {
-    gulp.src(['bin/**', 'models/**', 'public/**', 'routes/**', 'views/**', '*', '!.*', '!*.iml'], {base: '.'})
+    gulp.src(['bin/**', 'models/**', 'public/**', 'routes/**', 'views/**', '*', '!*.iml'], {base: '.'})
         .pipe(zip(packageJson.name + '-' + packageJson.version + '.zip'))
         .pipe(gulp.dest('build'));
 });
