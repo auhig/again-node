@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function (sequelize, DataTypes) {
-  return sequelize.define('word', {
+  return sequelize.define('entry', {
     id: {
       type: DataTypes.UUID,
       primaryKey: true
