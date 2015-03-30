@@ -19,10 +19,11 @@ var sequelize = new Sequelize(
 // 模型定义文件名
 var models = [
   //'category',
+  'daily',
   'entry',
-  'memory-daily',
-  'memory-detail',
   'repository',
+  //'round',
+  'statistics',
   'user'
 ];
 
@@ -39,16 +40,20 @@ models.forEach(function (model) {
 (function (m) {
   //m.Repository.belongsTo(m.Category);
 
-  m.Entry.belongsTo(m.Repository);
   m.Repository.hasMany(m.Entry, {as: 'Entries'});
 
-  m.MemoryDetail.belongsTo(m.User);
-  m.MemoryDetail.belongsTo(m.Entry);
-  m.MemoryDetail.belongsTo(m.Repository);
+  m.Entry.belongsTo(m.Repository);
 
-  m.MemoryDaily.belongsTo(m.User);
-  m.MemoryDaily.belongsTo(m.Entry);
-  m.MemoryDaily.belongsTo(m.Repository);
+  m.Daily.belongsTo(m.User);
+  m.Daily.belongsTo(m.Entry);
+  m.Daily.belongsTo(m.Repository);
+
+  m.Statistics.belongsTo(m.User);
+  m.Statistics.belongsTo(m.Entry);
+  m.Statistics.belongsTo(m.Repository);
+
+  //m.Round.belongsTo(m.User);
+  //m.Round.belongsTo(m.Repository);
 })(module.exports);
 
 //sequelize.sync();
