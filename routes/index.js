@@ -2,6 +2,7 @@
 
 var express = require('express');
 var router = express.Router();
+var packageJson = require('../package.json');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -13,7 +14,7 @@ router.get('/', function (req, res, next) {
     nickname: 'node'
   };
   // ------------------------------
-  res.render('index', {title: 'Express'});
+  res.render('index', {app_version: packageJson.version});
 });
 
 router.post('/login', function (req, res, next) {

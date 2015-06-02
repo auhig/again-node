@@ -1,4 +1,4 @@
-npm install
+npm install --production
 
 bower install
 
