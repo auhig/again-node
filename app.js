@@ -5,6 +5,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
+// var passport = require('passport');
+// var Strategy = require('passport-local').Strategy;
 
 var app = express();
 
@@ -26,6 +28,8 @@ app.use(session({
   saveUninitialized: true,
   cookie: {secure: false}
 }));
+// app.use(passport.initialize());
+// app.use(passport.session());
 
 // routes
 app.use('/', require('./routes/index'));

@@ -1,6 +1,5 @@
 /.*
 !/.gitignore
-!/.gitkeep
 !/.bowerrc
 /*.iml
 node_modules/

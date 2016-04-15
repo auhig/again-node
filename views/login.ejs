@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>Popeye Admin</title>
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap-3.3.6/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="lib/font-awesome-4.5.0/css/font-awesome.css"/>
+    <link rel="stylesheet" type="text/css" href="lib/adminlte-2.3.3/css/AdminLTE.css"/>
+    <link rel="stylesheet" type="text/css" href="lib/icheck-1.0.2/skins/square/blue.css"/>
+</head>
+<body class="login-page">
+<div class="login-box">
+    <div class="login-logo">
+        <a href="javascript: void(0);"><b>Popeye</b></a>
+    </div>
+    <!-- /.login-logo -->
+    <div class="login-box-body">
+        <p class="login-box-msg">登录</p>
+
+        <form action="login" method="post">
+            <div class="form-group has-feedback">
+                <input type="text" class="form-control" id="username" name="username" placeholder="用户名" required
+                       autofocus/>
+                <span class="glyphicon glyphicon-user form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+                <input type="password" class="form-control" id="password" name="password" placeholder="密码"
+                       maxlength="30" required/>
+                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                <input type="password" style="display: none" id="password" name="password"/>
+            </div>
+<#if RequestParameters.error?exists>
+            <div class="row">
+                <div class="col-xs-12">
+					<div class="form-group has-error">
+	                  	<span class="help-block">用户名或密码错误，请重新输入</span>
+	                </div>
+                </div>
+            </div>
+</#if>
+            <div class="row">
+                <div class="col-xs-8">
+                    <div class="checkbox icheck">
+                        <label>
+                            <input type="checkbox" id="rememberme" name="rememberme">&nbsp;保持登录
+                        </label>
+                    </div>
+                </div>
+                <!-- /.col -->
+                <div class="col-xs-4">
+                    <button type="submit" class="btn btn-primary btn-block btn-flat">登录</button>
+                </div>
+                <!-- /.col -->
+            </div>
+        </form>
+    </div>
+    <!-- /.login-box-body -->
+</div>
+<!-- /.login-box -->
+<script type="text/javascript" src="lib/jquery-2.2.3/jquery.js"></script>
+<script type="text/javascript" src="lib/icheck-1.0.2/icheck.js"></script>
+<script>
+    $(function () {
+        $('input[type="checkbox"]').iCheck({
+            checkboxClass: 'icheckbox_square-blue'
+        });
+    });
+</script>
+</body>
+</html>
