@@ -4,6 +4,7 @@ module.exports = (sequelize, DataTypes) => {
   return sequelize.define('statistics', {
     id: {
       type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
       primaryKey: true
     },
     level: {

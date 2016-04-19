@@ -1,3 +1,3 @@
-var modals = require('../../models');
+const modals = require('../../models');
 
 modals.sequelize.sync();

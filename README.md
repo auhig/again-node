@@ -33,13 +33,13 @@
 升降级
 ------
 
-等级变更规则：
+### 等级变更规则
 
 1. 当条目combo到达固定值时（暂定为3），则等级加1；
 2. 反之，当条目combo到达负的固定值时（暂定为-3），则等级减1；
 3. 当等级变化时，combo重置为0。
 
-combo变更规则：
+### combo变更规则
 
 1. 连续两个回合某条目均无miss，此时如combo大于等于0，则combo加1；如combo小于0，则combo清零。
 2. 回合内某条目出现miss，如combo大于0，则combo清零；如combo小于等于0，则combo减1。
@@ -60,5 +60,5 @@ combo变更规则：
 常用命令
 ========
 
-* npm test
-* gulp bower
+    npm test
+    gulp bower
