@@ -35,7 +35,7 @@ models.forEach(function (model) {
 });
 
 // 描述实体间依赖关系
-(function (m) {
+(m => {
   //m.Repository.belongsTo(m.Category);
 
   m.Repository.hasMany(m.Entry, {as: 'Entries'});
