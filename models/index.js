@@ -1,10 +1,10 @@
 'use strict';
 
-var Sequelize = require('sequelize');
-var database = require('../config').database;
+const Sequelize = require('sequelize');
+const database = require('../config').database;
 
 // 数据库连接
-var sequelize = new Sequelize(
+const sequelize = new Sequelize(
   database.database,
   database.user,
   database.password,
@@ -17,7 +17,7 @@ var sequelize = new Sequelize(
 );
 
 // 模型定义文件名
-var models = [
+const models = [
   //'category',
   'daily',
   'entry',
@@ -30,9 +30,7 @@ var models = [
 // 注册模型
 models.forEach(function (model) {
   // 将文件名转换为驼峰式类名（例如：foo-bar -> FooBar）
-  var className = model.replace(/(?:^|-)(\w)/g, function (m, c) {
-    return c.toUpperCase();
-  });
+  let className = model.replace(/(?:^|-)(\w)/g, (m, c) => c.toUpperCase());
   module.exports[className] = sequelize.import(__dirname + '/' + model);
 });
 

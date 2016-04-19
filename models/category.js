@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function (sequelize, DataTypes) {
+module.exports = (sequelize, DataTypes) => {
   return sequelize.define('category', {
     id: {
       type: DataTypes.INTEGER,

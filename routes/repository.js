@@ -1,10 +1,10 @@
 'use strict';
 
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
-router.get('/', function (req, res, next) {
-  var user = req.session.loginUser;
+router.get('/', (req, res, next) => {
+  let user = req.session.loginUser;
   console.log(user);
   res.send(user);
 });
