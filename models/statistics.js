@@ -7,6 +7,10 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: DataTypes.UUIDV4,
       primaryKey: true
     },
+    createdAt: {
+      type: DataTypes.DATE,
+      field: 'created_at'
+    },
     level: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -42,8 +46,5 @@ module.exports = (sequelize, DataTypes) => {
       field: 'last_time',
       allowNull: false
     }
-  }, {
-    freezeTableName: true,
-    underscored: true
   });
 };

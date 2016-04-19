@@ -12,7 +12,12 @@ const sequelize = new Sequelize(
     host: database.host,
     storage: database.storage,
     dialect: database.dialect,
-    pool: database.pool
+    pool: database.pool,
+    define: {
+      freezeTableName: true,
+      underscored: true,
+      underscoredAll: true
+    }
   }
 );
 

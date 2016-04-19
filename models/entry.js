@@ -11,8 +11,5 @@ module.exports = (sequelize, DataTypes) => {
     translation: DataTypes.STRING,
     phonetic: DataTypes.STRING,
     example: DataTypes.TEXT
-  }, {
-    freezeTableName: true,
-    underscored: true
   });
 };

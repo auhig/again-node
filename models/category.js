@@ -8,8 +8,5 @@ module.exports = (sequelize, DataTypes) => {
       autoIncrement: true
     },
     name: DataTypes.STRING
-  }, {
-    freezeTableName: true,
-    underscored: true
   });
 };

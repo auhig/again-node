@@ -17,8 +17,5 @@ module.exports = (sequelize, DataTypes) => {
       field: 'end_time',
       allowNull: false
     }
-  }, {
-    freezeTableName: true,
-    underscored: true
   });
 };

@@ -5,6 +5,8 @@ const models = require('../models');
 
 describe('Models.index', () => {
 
+  before(() => models.sequelize.sync());
+
   describe('index', () => {
     it('all models', () => {
       assert.ok(models.User);
@@ -16,7 +18,7 @@ describe('Models.index', () => {
   });
 
   describe('user', () => {
-    it('save success', (done) => {
+    it('normal', done => {
       let User = models.User;
       User.create({
         username: 'test_user',
@@ -25,6 +27,29 @@ describe('Models.index', () => {
       }).then(user => {
         assert.ok(user);
         assert.ok(user.id);
+        return user.update({
+          nickname: 'new_nickname'
+        });
+      }).then(user => {
+        assert.equal('new_nickname', user.nickname);
+        done();
+      });
+    });
+  });
+
+  describe('statistics', () => {
+    it('normal', done => {
+      models.Statistics.build({
+        level: 1,
+        remain: 20,
+        hit: 100,
+        miss: 10,
+        combo: 2,
+        nextTime: new Date(),
+        lastTime: new Date()
+      }).save().then(statistics => {
+        assert.ok(statistics);
+        assert.ok(statistics.createdAt);
         done();
       });
     });
