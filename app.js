@@ -23,7 +23,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
-  secret: 'd33f4a31-0c26-11dd-bd0b-0800200c9a66',
+  secret: 'B-k!OAx=zVoPR=F?~_NE#|uCaWIv).%d',
   resave: false,
   saveUninitialized: true,
   cookie: {secure: false}
@@ -66,6 +66,5 @@ app.use(function (err, req, res, next) {
     error: {}
   });
 });
-
 
 module.exports = app;

@@ -14,8 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     endTime: {
       type: DataTypes.DATE,
-      field: 'end_time',
-      allowNull: false
+      field: 'end_time'
     }
   });
 };

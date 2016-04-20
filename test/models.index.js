@@ -19,8 +19,7 @@ describe('Models.index', () => {
 
   describe('user', () => {
     it('normal', done => {
-      let User = models.User;
-      User.create({
+      models.User.create({
         username: 'test_user',
         password: 'encode_password',
         nickname: 'nickname'

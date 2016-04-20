@@ -2,5 +2,6 @@
 !/.gitignore
 !/.bowerrc
 /*.iml
+/logs
 node_modules/
 bower_components/
