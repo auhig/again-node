@@ -29,7 +29,8 @@ const models = [
   'repository',
   //'round',
   'statistics',
-  'user'
+  'user',
+  'user-repository'
 ];
 
 // 注册模型
@@ -57,6 +58,9 @@ models.forEach(function (model) {
 
   //m.Round.belongsTo(m.User);
   //m.Round.belongsTo(m.Repository);
+
+  m.UserRepository.belongsTo(m.User);
+  m.UserRepository.belongsTo(m.Repository);
 })(module.exports);
 
 //sequelize.sync();

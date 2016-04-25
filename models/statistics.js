@@ -11,6 +11,14 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATE,
       field: 'created_at'
     },
+    userId: {
+      type: DataTypes.UUID,
+      field: 'user_id'
+    },
+    repositoryId: {
+      type: DataTypes.UUID,
+      field: 'repository_id'
+    },
     level: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -37,12 +45,12 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: 0
     },
     nextTime: {
-      type: DataTypes.DATE,
+      type: DataTypes.DATEONLY,
       field: 'next_time',
       allowNull: false
     },
     lastTime: {
-      type: DataTypes.DATE,
+      type: DataTypes.DATEONLY,
       field: 'last_time',
       allowNull: false
     }
