@@ -13,6 +13,7 @@ const sequelize = new Sequelize(
     storage: database.storage,
     dialect: database.dialect,
     pool: database.pool,
+    timezone: '+08:00',
     define: {
       freezeTableName: true,
       underscored: true,

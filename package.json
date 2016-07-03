@@ -24,6 +24,8 @@
     "winston": "^2.2.0"
   },
   "devDependencies": {
+    "bookshelf": "^0.9.4",
+    "knex": "^0.10.0",
     "mocha": "^2.4.5"
   }
 }

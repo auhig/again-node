@@ -2,6 +2,7 @@
 
 const co = require('co');
 const logger = require('../logger');
+const moment = require('moment');
 const models = require('../models');
 const User = models.User;
 const Repository = models.Repository;
@@ -65,19 +66,29 @@ manager.start = (userId, repositoryId) => {
       where: {
         userId,
         repositoryId,
-        nextTime: {$lte: new Date()}
+        nextTime: {
+          $or: [
+            null,
+            {$lte: new Date()}
+          ]
+        }
       }
     });
 
-    // 存在拖欠条目，且当日已经选取过新条目，则当前回合仅需要偿还拖欠条目
-    if (defaults.length == 0) {
+    // 存在拖欠条目，且当日已经选取过新条目，则当前回合仅需偿还拖欠条目
+    if (defaults.length > 0) {
+      let start = moment().startOf('day');
+      let end = start.add(1, 'd');
       let count = yield Statistics.count({
         where: {
           userId,
           repositoryId,
-          createdAt: new Date()
+          createdAt: {
+            $gte: start.toDate(),
+            $lt: end.toDate()
+          }
         }
-      })
+      });
     }
 
     // 获取新条目
@@ -90,6 +101,18 @@ manager.start = (userId, repositoryId) => {
 };
 
 manager.complete = () => {
+
+};
+
+manager.pause = () => {
+
+};
+
+manager.hit = () => {
+
+};
+
+manager.miss = () => {
 
 };
 
